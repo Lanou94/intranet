@@ -1,0 +1,4 @@
+name = My Awesome Bootstrap subtheme
+description = A Bootstrap Sub-theme customized for this particular project
+core = 7.x
+base theme = bootstrap

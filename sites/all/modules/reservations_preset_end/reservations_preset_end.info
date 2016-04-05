@@ -1,0 +1,19 @@
+name = Reservations Preset End
+package = Reservations
+description = "Removes end date and time from form.  Automatically adds X number of hours to the start time."
+
+core = 7.x
+
+dependencies[] = reservations
+
+files[] = reservations_preset_end.module
+
+configure = admin/config/reservations/preset-end
+
+
+; Information added by drupal.org packaging script on 2013-10-01
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "reservations_preset_end"
+datestamp = "1380625690"
+
