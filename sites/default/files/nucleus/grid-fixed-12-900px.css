@@ -1,0 +1,51 @@
+div.container {
+  width: 900px;
+}
+
+.grid-1 {
+  width: 75px;
+}
+
+.grid-2 {
+  width: 150px;
+}
+
+.grid-3 {
+  width: 225px;
+}
+
+.grid-4 {
+  width: 300px;
+}
+
+.grid-5 {
+  width: 375px;
+}
+
+.grid-6 {
+  width: 450px;
+}
+
+.grid-7 {
+  width: 525px;
+}
+
+.grid-8 {
+  width: 600px;
+}
+
+.grid-9 {
+  width: 675px;
+}
+
+.grid-10 {
+  width: 750px;
+}
+
+.grid-11 {
+  width: 825px;
+}
+
+.grid-12 {
+  width: 900px;
+}
