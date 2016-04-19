@@ -42,6 +42,7 @@
  * Header
  */
 #header-wrapper {
+	padding-top : 100px;
 }
 
 #header-wrapper .container {
