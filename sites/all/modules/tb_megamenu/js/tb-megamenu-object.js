@@ -463,8 +463,7 @@ Drupal.TBMegaMenu = Drupal.TBMegaMenu || {};
       id = $this.attr('data-id'),
       rows = [];
       var level = parseInt($this.attr('data-level'));
-      var $
-	  = $this.find ('.nav-child:first');
+      var $sub = $this.find ('.nav-child:first');
       var $rows = $sub.find('[class*="row"]:first').parent().children('[class*="row"]');
       $rows.each (function () {
         var $cols = $(this).children('[class*="span"]');
@@ -964,7 +963,4 @@ Drupal.TBMegaMenu = Drupal.TBMegaMenu || {};
     Drupal.TBMegaMenu.initRadioGroup();
     Drupal.TBMegaMenu.prepare();
   });
-  
-
-  
 }(jQuery);
