@@ -46,6 +46,7 @@
             <?php print $content; ?>
           </td>
         <?php endforeach; ?>
+		
       </tr>
     <?php endforeach; ?>
   </tbody>
