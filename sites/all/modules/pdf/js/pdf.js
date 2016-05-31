@@ -1,10 +1,10 @@
 (function ($) {
   Drupal.behaviors.pdf = {
     attach: function(context, settings) {
-      $('.pdf-pages').each(function(){
+      $('.pdf-pages', context).each(function(){
         var file = $(this).attr('file');
         var scale = $(this).attr('scale');
-        $(this).append('<div id="pdfContainer" class="pdf-content"/>');
+        $(this).html('<div id="pdfContainer" class="pdf-content"/>');
 
         function loadPdf(pdfPath) {
             var pdf = PDFJS.getDocument(pdfPath);
@@ -78,7 +78,7 @@
 
       });
 
-      var canvases = context.getElementsByClassName("pdf-thumbnail");
+      var canvases = $('canvas.pdf-thumbnail', context);
       Array.prototype.forEach.call(canvases, function(canvas) {
         var file = canvas.attributes.file.value;
         PDFJS.getDocument(file).then(function(pdf) {

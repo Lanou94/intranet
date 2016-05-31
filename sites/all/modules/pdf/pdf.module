@@ -47,8 +47,8 @@ function pdf_libraries_info() {
     'download url' => 'http://mozilla.github.io/pdf.js/getting_started/#download',
     'version arguments' => array(
       'file' => 'build/pdf.js',
-      'pattern' => '@PDFJS\.version\s=\s\'(.*)\'@',
-      'lines' => 30,
+      'pattern' => '/ersion\s=\s\'(.*)\'/',
+      'lines' => 32,
     ),
     'files' => array(
       'js' => array(

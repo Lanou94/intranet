@@ -37,6 +37,7 @@ function pdf_field_formatter_info() {
 function pdf_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
   $display = $instance['display'][$view_mode];
   $settings = $display['settings'];
+  $element = array();
   if ($display['type'] == 'pdf_default') {
     $element['keep_pdfjs'] = array(
       '#type' => 'checkbox',
@@ -205,10 +206,10 @@ function theme_pdf_formatter_thumbnail($variables) {
   $worker_loader = file_create_url(libraries_get_path('pdf.js') . '/build/pdf.worker.js');
   $js = "PDFJS.workerSrc = '$worker_loader';";
   $module_path = drupal_get_path('module', 'pdf');
-  drupal_add_css($module_path . '/css/pdf.css');
-  drupal_add_js($module_path . '/js/pdf.js', array('scope' => 'footer'));
+  //drupal_add_css($module_path . '/css/pdf.css');
+  //drupal_add_js($module_path . '/js/pdf.js', array('scope' => 'footer'));
   drupal_add_js($js, array('type' => 'inline', 'scope' => 'footer'));
-  $html = array(
+  $canvas = array(
     '#type' => 'html_tag',
     '#tag' => 'canvas',
     //'#value' => $file_url,
@@ -219,6 +220,14 @@ function theme_pdf_formatter_thumbnail($variables) {
       'style' => 'width:' . $variables['width'] . ';height:' . $variables['height'] . ';',
     ),
   );
+  $html = array(
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#value' => render($canvas),
+    '#attributes' => array('class' => array('pdf')),
+  );
+  $html['#attached']['js'] = array($module_path . '/js/pdf.js');
+  $html['#attached']['css'] = array($module_path . '/css/pdf.css');
   return render($html);
 }
 
@@ -238,7 +247,7 @@ function theme_pdf_formatter_pages($variables) {
   $worker_loader = file_create_url(libraries_get_path('pdf.js') . '/build/pdf.worker.js');
   $js = "PDFJS.workerSrc = '$worker_loader';";
   drupal_add_js($js, array('type' => 'inline'));
-  drupal_add_js($module_path . '/js/pdf.js');
+  //drupal_add_js($module_path . '/js/pdf.js');
   $link = array(
     'text' => $filename,
     'path' => $file_url,
@@ -258,5 +267,7 @@ function theme_pdf_formatter_pages($variables) {
       'file' => $file_url,
     ),
   );
+  $html['#attached']['js'] = array($module_path . '/js/pdf.js');
+  $html['#attached']['css'] = array($module_path . '/css/pdf.css');
   return render($html);
 }
