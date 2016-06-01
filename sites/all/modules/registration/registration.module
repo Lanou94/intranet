@@ -6,7 +6,7 @@
  * Module file for registrations.
  */
 
-
+$test=0;
 module_load_include('inc', 'registration', 'includes/registration.field');
 module_load_include('inc', 'registration', 'includes/registration.forms');
 
@@ -692,8 +692,6 @@ function registration_registrations_page($entity_type, $entity) {
       if (entity_access('delete', 'registration', $registration)) {
         $actions[] = l(t('Delete'), 'registration/' . $registration->registration_id . '/delete', array('query' => drupal_get_destination()));
       }
-	  
-	  
 				
 				//Récupere tous les id et leur max
 				$historique=$bdd->query("SELECT MAX(historique) AS maxhisto FROM registration WHERE user_uid=$user_uid ");
@@ -701,18 +699,18 @@ function registration_registrations_page($entity_type, $entity) {
 					$_SESSION['user_uid']=$user_uid;
 				foreach($result as $results){
 				//Insertion de l'id et du max 
-				
+			
 			
 				// echo $results['user_uid'];
 				// $user_id=$results['user_uid'];
 				// echo '-';
-				echo $results['maxhisto'];
+				//echo $results['maxhisto'];
 				$max_histo=$results['maxhisto'];
-				echo '<br />';
+				// echo '<br />';
 				$historique=$bdd->query("SELECT state FROM registration WHERE registration_id=$registration->registration_id");
 				$result = $historique->fetch();
 				$state=$result['state'];
-				echo $state;
+				// echo $state;
 				// echo '-';
 				// echo $results['state'];
 				// $etat=$results['state'];
@@ -723,9 +721,9 @@ function registration_registrations_page($entity_type, $entity) {
 				// echo $results['entity_id'];
 				// $entit=$results['entity_id'];
 				
-				echo '<br />///';
+				// echo '<br />///';
 			
-				echo '<br />';
+				// echo '<br />';
 				
 						 if($state=='pending' ){
 						unset($_SESSION['compteur_canceled']);
@@ -757,8 +755,9 @@ function registration_registrations_page($entity_type, $entity) {
 							
 					}
 					}
+				}
 				
-		}
+		
 
 				$historique=$bdd->query("SELECT historique FROM registration WHERE registration_id=$registration->registration_id");
 				$result = $historique->fetch();
@@ -767,7 +766,7 @@ function registration_registrations_page($entity_type, $entity) {
 		else if($state=='pending')$state='En attente';
 		else if($state=='complete')$state='Valider';
 		
-		
+				
       $rows[] = array(
         l($registration->registration_id, 'registration/' . $registration->registration_id),
         l($wrapper->mail->value(), 'mailto:' . $wrapper->mail->value()),
