@@ -1,0 +1,14 @@
+; $Id: standard.info,v 1.2 2010/10/25 15:48:41 webchick Exp $
+name = ThemeBrain
+description = Install profile for ThemeBrain themes
+version = VERSION
+core = 7.x
+
+files[] = themebrain_profile.profile
+
+; Information added by Drupal.org packaging script on 2015-01-27
+version = "7.x-1.0-beta6"
+core = "7.x"
+project = "tb_sirate_starter"
+datestamp = "1422346984"
+
