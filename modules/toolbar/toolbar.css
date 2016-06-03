@@ -64,7 +64,7 @@ body.toolbar-drawer {
  * Administration menu.
  */
 #toolbar div.toolbar-menu {
-  background: #DE7E7E;
+  background: #000;
   line-height: 20px;
   padding: 5px 50px 5px 10px; /* LTR */
   position: relative;

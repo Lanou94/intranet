@@ -285,7 +285,6 @@ function drupal_session_start() {
     $session_data = isset($_SESSION) ? $_SESSION : NULL;
 
     session_start();
-	 
     drupal_session_started(TRUE);
 
     // Restore session data.
