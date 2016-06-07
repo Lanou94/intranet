@@ -658,7 +658,7 @@ function registration_registrations_page($entity_type, $entity) {
 				}
 				catch (Exception $e)
 					{
-							die('Errrreur : ' . $e->getMessage("erreur"));
+							die('Erreur : ' . $e->getMessage("erreur"));
 					}
 				
 	
