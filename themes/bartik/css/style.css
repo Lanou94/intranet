@@ -2,10 +2,10 @@
 /* ---------- Overall Specifications ---------- */
 
 body {
-  line-height: 2;
-  font-size: 100.5%;
+  line-height: 1.5;
+  font-size: 87.5%;
   word-wrap: break-word;
-  margin: 1;
+  margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
@@ -53,7 +53,7 @@ kbd,
 samp,
 var {
   padding: 0 0.4em;
-  font-size: 0.77em;
+  font-size: 0.857em;
   font-family: Menlo, Consolas, "Andale Mono", "Lucida Console", "Nimbus Mono L", "DejaVu Sans Mono", monospace, "Courier New";
 }
 code {
@@ -106,7 +106,7 @@ body,
 #site-slogan,
 .ui-widget,
 .comment-form label {
-  font-family: Cursive, "Times New Roman", Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 #header,
 #footer-wrapper,
@@ -169,7 +169,7 @@ a.feed-icon {
 /* ------------------ Table Styles ------------------ */
 
 table {
-  border:0;
+  border: 0;
   border-spacing: 0;
   font-size: 0.857em;
   margin: 10px 0;
@@ -294,15 +294,15 @@ ul.tips {
 }
 #logo {
   float: left; /* LTR */
-  padding: 25px 25px 20px 15px; /* LTR */
+  padding: 15px 15px 15px 10px; /* LTR */
 }
 #name-and-slogan {
   float: left; /* LTR */
-  padding-top: 50px;
-  margin: 0 0 35px 20px; /* LTR */
+  padding-top: 34px;
+  margin: 0 0 30px 15px; /* LTR */
 }
 #site-name {
-  font-size: 2.500em;
+  font-size: 1.821em;
   color: #686868;
   line-height: 1;
 }
@@ -310,11 +310,11 @@ h1#site-name {
   margin: 0;
 }
 #site-name a {
-  font-weight: large;
+  font-weight: normal;
 }
 #site-slogan {
   font-size: 0.929em;
-  margin-top: 10px;
+  margin-top: 7px;
   word-spacing: 0.1em;
   font-style: italic;
 }
@@ -326,7 +326,7 @@ h1#site-name {
   padding: 0;
 }
 .region-header .block .content {
-  margin:0;
+  margin: 0;
   padding: 0;
 }
 .region-header .block ul {
@@ -423,7 +423,7 @@ h1#site-name {
   padding-left: 20px; /* LTR */
 }
 .region-header #block-user-login .form-actions {
-  margin: 10px 0 0;
+  margin: 4px 0 0;
   padding: 0;
   clear: both;
 }
@@ -512,7 +512,7 @@ h1#site-name {
 #secondary-menu-links {
   float: right; /* LTR */
   font-size: 0.929em;
-  margin: 10px 10px ;
+  margin: 10px 10px 0;
 }
 #secondary-menu-links a:hover,
 #secondary-menu-links a:focus {
@@ -704,7 +704,6 @@ ul.links {
 }
 .comment .submitted .comment-permalink {
   font-size: 0.786em;
-  text-transform: lowercase;
 }
 .comment .content {
   font-size: 0.929em;
@@ -1324,14 +1323,6 @@ input.form-button-disabled:active,
 }
 .form-disabled label {
   color: #717171;
-}
-
-/* Animated throbber */
-html.js input.form-autocomplete {
-  background-position: 100% 4px; /* LTR */
-}
-html.js input.throbbing {
-  background-position: 100% -16px; /* LTR */
 }
 
 /* Comment form */

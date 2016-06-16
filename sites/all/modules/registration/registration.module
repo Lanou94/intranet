@@ -649,7 +649,7 @@ function registration_registrations_page($entity_type, $entity) {
   if (!empty($result['registration'])) {
     $registrations = registration_load_multiple(array_keys($result['registration']));
     $rows = array();
-	//On se connecte
+	//On se connecte a la bdd
 		try
 			{
 				$bdd = new PDO('mysql:host=localhost;dbname=intranet_accor_hotels_arena;charset=utf8', 'root', '', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
