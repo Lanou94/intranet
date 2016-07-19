@@ -1,12 +1,10 @@
 <?php
 
-@session_start;
 /**
  * @file
  * Module file for registrations.
  */
 
-$test=0;
 module_load_include('inc', 'registration', 'includes/registration.field');
 module_load_include('inc', 'registration', 'includes/registration.forms');
 
@@ -494,7 +492,6 @@ function registration_register_page_access($entity_type, $entity) {
       $settings = registration_entity_settings($entity_type, $entity_id);
       if ($settings['status']) {
         return TRUE;
-		
       }
     }
   }
@@ -557,9 +554,7 @@ function registration_register_page($entity_type, $entity) {
       'entity_id' => $entity_id,
       'type' => $registration_type,
     ));
-	
     return drupal_get_form('registration_form', $registration);
-	
   }
   else {
     return t('Désolé, les réservations pour cette évènement (%name) sont terminé ',
@@ -632,6 +627,7 @@ function registration_registrations_page($entity_type, $entity) {
      'specifier' => 'historique',
 	),
   );
+
   list($entity_id) = entity_extract_ids($entity_type, $entity);
   $label = entity_label($entity_type, $entity);
 
@@ -643,23 +639,16 @@ function registration_registrations_page($entity_type, $entity) {
     ->pager(20)
     ->tableSort($header)
     ->execute();
-	
-
 
   if (!empty($result['registration'])) {
     $registrations = registration_load_multiple(array_keys($result['registration']));
     $rows = array();
 
-	
-    foreach ($registrations as $registration)  {
-		
+    foreach ($registrations as $registration) {
       $wrapper = entity_metadata_wrapper('registration', $registration);
       $author = $wrapper->author->value();
       $user = $wrapper->user->value();
-	  $user_uid = $wrapper->user_uid->value();
-	  $state = $wrapper->state->value();
-	  $count =$wrapper->count->value();
-	  
+      $state = $wrapper->state->value();
 
       $author_col = '';
       if ($registration->author_uid) {
@@ -681,12 +670,9 @@ function registration_registrations_page($entity_type, $entity) {
       if (entity_access('delete', 'registration', $registration)) {
         $actions[] = l(t('Delete'), 'registration/' . $registration->registration_id . '/delete', array('query' => drupal_get_destination()));
       }
-				
-				
-				
-		
+	  	
+			
 
-				
       $rows[] = array(
         l($registration->registration_id, 'registration/' . $registration->registration_id),
         l($wrapper->mail->value(), 'mailto:' . $wrapper->mail->value()),
@@ -695,12 +681,11 @@ function registration_registrations_page($entity_type, $entity) {
         $registration->count,
         format_date($registration->created),
         ($state ? filter_xss_admin(entity_label('registration_state', $state)) : ''),
-        implode(' | ', $actions),
-	
+        implode(' | ', $actions)
+		
       );
-	  
-	  
     }
+
     $settings = registration_entity_settings($entity_type, $entity_id);
 
     $table = array(
@@ -723,7 +708,11 @@ function registration_registrations_page($entity_type, $entity) {
 
     $out = theme('table', $table) . theme('pager');
   }
- 
+  else {
+    $out = t('Pas de réserviste pour cette evènement, %name',
+      array('%name' => $label));
+  }
+
   return $out;
 }
 
@@ -739,7 +728,6 @@ function registration_registrations_page($entity_type, $entity) {
 function registration_entity_settings_page($entity_type, $entity) {
   list($entity_id) = entity_extract_ids($entity_type, $entity);
   $settings = registration_entity_settings($entity_type, $entity_id);
-
   return drupal_get_form('registration_entity_settings_form', $settings, $entity_type, $entity_id);
 }
 
@@ -2037,5 +2025,4 @@ function _registration_translate($name, $string, $langcode = NULL) {
  */
 function _registration_translate_update($name, $string, $langcode = NULL) {
   return function_exists('i18n_string') ? i18n_string('registration:' . $name, $string, array('update' => TRUE, 'langcode' => $langcode)) : FALSE;
-
-  }
+}
