@@ -1932,7 +1932,7 @@ function file_save_data($data, $destination = NULL, $replace = FILE_EXISTS_RENAM
  */
 function file_unmanaged_save_data($data, $destination = NULL, $replace = FILE_EXISTS_RENAME) {
   // Write the data to a temporary file.
-  $temp_name = drupal_tempnam('temporary://', 'file');
+  $temp_name = drupal_tempnam('tmp/', 'file');
   if (file_put_contents($temp_name, $data) === FALSE) {
     drupal_set_message(t('The file could not be created.'), 'error');
     return FALSE;
